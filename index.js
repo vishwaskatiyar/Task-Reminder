@@ -11,12 +11,12 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // MongoDB connection and models
-mongoose.connect('mongodb+srv://ashpatni:5eoZl3tEIhZSbB1F@cluster0.nx21r.mongodb.net/mydatabase?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://<vkatiyar98>:<ygQvO4PKpinHyXLA>@cluster0.ryxzf.mongodb.net/', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
-.then(() => console.log("DB connected successfully"))
-.catch((err) => console.log("DB connection error:", err));
+  .then(() => console.log("DB connected successfully"))
+  .catch((err) => console.log("DB connection error:", err));
 
 const emailLogSchema = new mongoose.Schema({
   email: String,
@@ -26,12 +26,12 @@ const emailLogSchema = new mongoose.Schema({
 });
 const EmailLog = mongoose.model('EmailLog', emailLogSchema);
 
-// Email transporter configuration
+
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'patniaishwarya96@gmail.com',
-    pass: 'gcvc syov wida xqxb',
+    user: 'vkatiyar98@gmail.com',
+    pass: 'ggmz ippc vbaa fxxm',
   },
 });
 
@@ -45,7 +45,7 @@ app.post('/api/tasks', (req, res) => {
   // Schedule the task using cron
   const scheduledTask = cron.schedule(schedule, () => {
     const mailOptions = {
-      from: 'aishwaryapatni96@gmail.com',
+      from: 'vkatiyar98@gmail.com',
       to: email,
       subject: `Scheduled Task: ${task}`,
       text: `This is your scheduled task: ${task}`,

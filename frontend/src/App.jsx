@@ -1,30 +1,33 @@
-import React, { useState } from 'react';
-import TaskList from './TaskList';
+import React, { useState } from "react";
+import TaskList from "./TaskList";
 
 function App() {
-  const [task, setTask] = useState('');
-  const [email, setEmail] = useState('');
-  const [schedule, setSchedule] = useState('');
+  const [task, setTask] = useState("");
+  const [email, setEmail] = useState("");
+  const [schedule, setSchedule] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     // Send task to the backend
     try {
-      const response = await fetch('https://taskscheduler-5ij8.onrender.com/api/tasks', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          task,
-          email,
-          schedule,
-        }),
-      });
+      const response = await fetch(
+        "https://taskscheduler-5ij8.onrender.com/api/tasks",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            task,
+            email,
+            schedule,
+          }),
+        }
+      );
 
       if (response.ok) {
-        alert('Task added successfully');
+        alert("Task added successfully");
         // setTask('');
         // setEmail('');
         // setSchedule('');
@@ -33,8 +36,8 @@ function App() {
         alert(`Error adding task: ${errorText}`);
       }
     } catch (error) {
-      alert('Network error');
-      console.error('Network error:', error);
+      alert("Network error");
+      console.error("Network error:", error);
     }
   };
 
@@ -72,7 +75,7 @@ function App() {
         </div>
         <button type="submit">Add Task</button>
       </form>
-      <TaskList/>
+      <TaskList />
     </div>
   );
 }
