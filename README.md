@@ -33,5 +33,5 @@ The project is live and can be accessed for frontend [here](https://task-schedul
 #### Backend
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repo/task-scheduler.git
+   git clone https://github.com/ashpatni20/TaskScheduler.git
    cd task-scheduler/backend
